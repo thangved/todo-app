@@ -1,6 +1,6 @@
 import { CheckIcon, DeleteIcon, RepeatIcon } from "@chakra-ui/icons";
-import { Button, Flex, ScaleFade, Text, Tooltip } from "@chakra-ui/react";
-import React, { useContext, useState } from "react";
+import { Button, Collapse, Flex, Text, Tooltip } from "@chakra-ui/react";
+import React, { useContext, useEffect, useState } from "react";
 import { Todo } from "../providers/TodoProvider";
 import TJob from "../types/TJob";
 
@@ -11,15 +11,21 @@ type todoItemProps = {
 const TodoItem: React.FC<todoItemProps> = ({ job }) => {
 	const { removeJob, completeJob, undoJob } = useContext(Todo);
 
-	const [isOpen, setIsOpen] = useState<boolean>(true);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	const handler = (cb: () => void) => {
 		setIsOpen(false);
-		setTimeout(cb, 200);
+		setTimeout(cb, 500);
 	};
 
+	useEffect(() => {
+		setTimeout(() => {
+			setIsOpen(true);
+		}, 500);
+	}, []);
+
 	return (
-		<ScaleFade
+		<Collapse
 			in={isOpen}
 			style={{
 				width: "100%",
@@ -59,7 +65,7 @@ const TodoItem: React.FC<todoItemProps> = ({ job }) => {
 					</Button>
 				</Tooltip>
 			</Flex>
-		</ScaleFade>
+		</Collapse>
 	);
 };
 

@@ -10,7 +10,7 @@ import RemovedList from "./RemovedList";
 
 const TodoList = () => {
 	return (
-		<Accordion mt="0" defaultIndex={[0]}>
+		<Accordion mt="0" defaultIndex={[0]} allowToggle>
 			<AccordionItem>
 				<AccordionButton>Pending</AccordionButton>
 				<AccordionPanel pl="0" pr="0">
