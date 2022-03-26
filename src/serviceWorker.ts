@@ -45,9 +45,7 @@ export function register(config?: Config): void {
 
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
-          
-        });
+        navigator.serviceWorker.ready.then(() => {});
       } else {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
@@ -71,7 +69,6 @@ function registerValidSW(swUrl: string, config?: Config) {
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
-              
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -81,7 +78,6 @@ function registerValidSW(swUrl: string, config?: Config) {
               // At this point, everything has been precached.
               // It is the perfect time to display a
               // "Content is cached for offline use." message.
-              
 
               // Execute callback
               if (config && config.onSuccess) {
@@ -92,9 +88,7 @@ function registerValidSW(swUrl: string, config?: Config) {
         };
       };
     })
-    .catch((error) => {
-      
-    });
+    .catch((error) => {});
 }
 
 function checkValidServiceWorker(swUrl: string, config?: Config) {
@@ -120,9 +114,7 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
         registerValidSW(swUrl, config);
       }
     })
-    .catch(() => {
-      
-    });
+    .catch(() => {});
 }
 
 export function unregister(): void {
@@ -131,8 +123,6 @@ export function unregister(): void {
       .then((registration) => {
         registration.unregister();
       })
-      .catch((error) => {
-        
-      });
+      .catch((error) => {});
   }
 }
